@@ -9,7 +9,7 @@ public abstract class AbstractList<I> implements List<I> {
 
     @Override
     public boolean empty() {
-        return quantity == 0;
+        return size() == 0;
     }
 
     @Override

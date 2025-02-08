@@ -32,35 +32,31 @@ public class LinkedList<I> extends AbstractList<I> {
     @Override
     public void insertTop(I item) {
         Node newNode = new Node(item);
-
-        if (empty()) {
+        
+        if (empty()) 
             end = newNode;
-            top = newNode;
-            newNode.next = null;
-        }
-        else {
-            newNode.next = top;
-            top = newNode;
-        }
-
+        
+        newNode.next = top;
+        top = newNode;
+        
         quantity++;
     }
 
     @Override
     public void insertEnd(I item) {
         Node newNode = new Node(item);
-
+        
         if (empty()) {
-            end = newNode;
             top = newNode;
+            end = newNode;
             newNode.next = null;
         }
         else {
             end.next = newNode;
+            newNode.next = null;
             end = newNode;
-            end.next = null;
         }
-
+        
         quantity++;
     }
     
@@ -73,19 +69,25 @@ public class LinkedList<I> extends AbstractList<I> {
         if (!isValid(position))
             throw new PositionInvalidException();
 
-        if(position == 0)
+        if (position == 0) {
             insertTop(item);
-        else {
-            Node newNode = new Node(item);
-            Node aux = top;
-
-            for (int i = 0; i < position - 1; i++)
-                aux = aux.next;
-
-            newNode.next = aux.next;
-            aux.next = newNode;
-            quantity++;
+            return;
         }
+        
+        if (position == size()) {
+            insertEnd(item);
+            return;
+        }
+        
+        Node newNode = new Node(item);
+        Node aux = top;
+
+        for (int i = 0; i < position - 1; i++)
+            aux = aux.next;
+
+        newNode.next = aux.next;
+        aux.next = newNode;
+        quantity++;
     }
 
     @Override
