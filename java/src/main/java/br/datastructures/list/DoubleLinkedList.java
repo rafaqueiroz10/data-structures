@@ -29,7 +29,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
         this(null, null);
     }
     
-    public DoubleLinkedList(Node top, Node end) {
+    private DoubleLinkedList(Node top, Node end) {
         this.top = top;
         this.end = end;
     }

@@ -7,7 +7,7 @@ public class ArrayList<I> extends AbstractList<I> {
     private I items[];
     private int capacity;
     
-    public ArrayList(I[] items, int capacity) {
+    private ArrayList(I[] items, int capacity) {
         this.items = items;
         this.capacity = capacity;
     }
