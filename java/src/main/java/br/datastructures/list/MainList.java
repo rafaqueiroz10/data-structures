@@ -64,5 +64,10 @@ public class MainList {
         
         List<Integer> arrayList = new ArrayList<>(); 
         testList(arrayList);
+        
+        System.out.println();
+        
+        List<Integer> doubleLinkedList = new DoubleLinkedList<>(); 
+        testList(doubleLinkedList);
     }
 }
