@@ -1,6 +1,6 @@
 package br.datastructures.list;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.*;
 
 public class ViewList {
     public static <I> void view(List<I> list)

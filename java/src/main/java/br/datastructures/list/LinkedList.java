@@ -59,16 +59,9 @@ public class LinkedList<I> extends AbstractList<I> {
         
         quantity++;
     }
-    
-    private boolean isValid(int position) {
-        return position > -1 && position < size()+1;
-    }
 
     @Override
     public void insert(I item, int position) throws PositionInvalidException {
-        if (!isValid(position))
-            throw new PositionInvalidException();
-
         if (position == 0) {
             insertTop(item);
             return;
@@ -78,6 +71,10 @@ public class LinkedList<I> extends AbstractList<I> {
             insertEnd(item);
             return;
         }
+        
+        if (!isValid(position))
+            throw new PositionInvalidException();
+        
         
         Node newNode = new Node(item);
         Node aux = top;
@@ -125,6 +122,7 @@ public class LinkedList<I> extends AbstractList<I> {
     public I remove(int position) throws PositionInvalidException, NoItemException {
         if(position == 0)
             return removeTop();
+        
         if(position == size()-1)
             return removeEnd();
 

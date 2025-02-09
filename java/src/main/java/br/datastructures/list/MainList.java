@@ -5,6 +5,7 @@ public class MainList {
         try {
             list.insert(10, 0);
             System.out.println(list.get(0));
+            ViewList.view(list);
             
             System.out.println("Insert top: quantos = " + list.size());
             System.out.println("Top: " + list.getTop() + ", End: " + list.getEnd());
@@ -19,6 +20,7 @@ public class MainList {
             System.out.println(list.get(1));
             System.out.println(list.getTop());
             
+            
             list.insert(30, 2);
             
             System.out.println("Insert top: quantos = " + list.size());
@@ -27,7 +29,7 @@ public class MainList {
             System.out.println(list.get(2));
             System.out.println(list.getTop());
             System.out.println(list.getEnd());
-            
+           
             ViewList.view(list);
             
             System.out.println(list.empty());
@@ -58,6 +60,9 @@ public class MainList {
         List<Integer> linkedList = new LinkedList<>(); 
         testList(linkedList);
         
+        System.out.println();
         
+        List<Integer> arrayList = new ArrayList<>(); 
+        testList(arrayList);
     }
 }
