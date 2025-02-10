@@ -23,5 +23,8 @@ public class MainStack {
     public static void main(String[] args) {
         Stack<Integer> arrayStack = new ArrayStack<>();
         test(arrayStack);
+        
+        Stack<Integer> linkedStack = new LinkedStack<>();
+        test(linkedStack);
     }
 }
