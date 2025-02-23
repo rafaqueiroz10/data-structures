@@ -12,10 +12,10 @@ public interface List<I> {
     public boolean empty();
 
     // insere um item no inicio da lista
-    public void insertTop(I item);
+    public void insertFirst(I item);
 
     // insere um item no fim da lista
-    public void insertEnd(I item);
+    public void insertLast(I item);
 
     // insere um item na lista, de acordo
     // com uma determinada posiÃ§Ã£o
@@ -24,11 +24,11 @@ public interface List<I> {
 
     // remove um item no inicio da lista;
     // retorna o item removido
-    public I removeTop() throws NoItemException;
+    public I removeFirst() throws NoItemException;
 
     // remove um item no fim da lista;
     // retorna o item removido
-    public I removeEnd() throws NoItemException;
+    public I removeLast() throws NoItemException;
 
     // remove um item no meio da lista,
     // de acordo com uma determinada posiÃ§Ã£o;
@@ -38,19 +38,19 @@ public interface List<I> {
 
     // obtem um item no inÃ­cio da lista;
     // retorna o item obtido
-    public I getTop() throws NoItemException;
+    public I getFirst() throws NoItemException;
 
     //  obtem um item no fim da lista;
     // retorna o item obtido
-    public I getEnd() throws NoItemException;
+    public I getLast() throws NoItemException;
 
     // obtem um item da lista,
-    // dada uma posiÃ§Ã£o;
+    // dada uma posição;
     // retorna o item obtido
     public I get(int position)
             throws NoItemException, PositionInvalidException;
 
     //  obtem a posiÃ§Ã£o de um item da lista
     // retorna a posiÃ§Ã£o do item
-    public int search (I item) throws NoItemException;
+    public int search(I item) throws NoItemException;
 }

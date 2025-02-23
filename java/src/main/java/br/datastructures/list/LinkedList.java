@@ -22,39 +22,39 @@ public class LinkedList<I> extends AbstractList<I> {
         }
     }
 
-    private Node top, end;
+    private Node first, last;
 
     public LinkedList() {
-        top = null;
-        end = null;
+        first = null;
+        last = null;
     }
 
     @Override
-    public void insertTop(I item) {
+    public void insertFirst(I item) {
         Node newNode = new Node(item);
         
         if (empty()) 
-            end = newNode;
+            last = newNode;
         
-        newNode.next = top;
-        top = newNode;
+        newNode.next = first;
+        first = newNode;
         
         quantity++;
     }
 
     @Override
-    public void insertEnd(I item) {
+    public void insertLast(I item) {
         Node newNode = new Node(item);
         
         if (empty()) {
-            top = newNode;
-            end = newNode;
+            first = newNode;
+            last = newNode;
             newNode.next = null;
         }
         else {
-            end.next = newNode;
+            last.next = newNode;
             newNode.next = null;
-            end = newNode;
+            last = newNode;
         }
         
         quantity++;
@@ -63,23 +63,22 @@ public class LinkedList<I> extends AbstractList<I> {
     @Override
     public void insert(I item, int position) throws PositionInvalidException {
         if (position == 0) {
-            insertTop(item);
+            insertFirst(item);
             return;
         }
         
         if (position == size()) {
-            insertEnd(item);
+            insertLast(item);
             return;
         }
         
         if (!isValid(position))
             throw new PositionInvalidException();
         
-        
         Node newNode = new Node(item);
-        Node aux = top;
+        Node aux = first;
 
-        for (int i = 0; i < position - 1; i++)
+        for(int i = 0; i < position - 1; i++)
             aux = aux.next;
 
         newNode.next = aux.next;
@@ -88,29 +87,29 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I removeTop() throws NoItemException {
-        I item = getTop();
-        top = top.next;
+    public I removeFirst() throws NoItemException {
+        I item = getFirst();
+        first = first.next;
         quantity--;
 
         return item;
     }
 
     @Override
-    public I removeEnd() throws NoItemException {
-        I item = getEnd();
+    public I removeLast() throws NoItemException {
+        I item = getLast();
 
-        if(top.equals(end)) {
-            top = null;
-            end = null;
+        if(first.equals(last)) {
+            first = null;
+            last = null;
         }
         else {
-            Node aux = top;
-            while(!aux.next.equals(end)) 
+            Node aux = first;
+            while(!aux.next.equals(last)) 
                 aux = aux.next;
          
             aux.next = null;
-            end = aux;
+            last = aux;
         }
 
         quantity--;
@@ -121,13 +120,13 @@ public class LinkedList<I> extends AbstractList<I> {
     @Override
     public I remove(int position) throws PositionInvalidException, NoItemException {
         if(position == 0)
-            return removeTop();
+            return removeFirst();
         
         if(position == size()-1)
-            return removeEnd();
+            return removeLast();
 
         I item = get(position);
-        Node aux = top;
+        Node aux = first;
         for (int i = 0; i < position - 1; i++) 
             aux = aux.next;
         
@@ -139,19 +138,19 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I getTop() throws NoItemException {
+    public I getFirst() throws NoItemException {
         if(empty())
             throw new NoItemException();
 
-        return top.item;
+        return first.item;
     }
 
 
-    public I getEnd() throws NoItemException {
+    public I getLast() throws NoItemException {
         if (empty())
             throw new NoItemException();
 
-        return end.item;
+        return last.item;
     }
 
     @Override
@@ -160,7 +159,7 @@ public class LinkedList<I> extends AbstractList<I> {
             throw new PositionInvalidException();
 
         int p = 0;
-        for(Node aux = top; aux != null; aux = aux.next) {
+        for(Node aux = first; aux != null; aux = aux.next) {
             if(p == position)
                 return aux.item;
 
@@ -172,8 +171,11 @@ public class LinkedList<I> extends AbstractList<I> {
 
     @Override
     public int search(I item) throws NoItemException  {
+        if(empty())
+            throw new NoItemException();
+        
         int position = 0;
-        for(Node aux = top; aux != null; aux = aux.next) {
+        for(Node aux = first; aux != null; aux = aux.next) {
             if(aux.item.equals(item))
                 return position;
 

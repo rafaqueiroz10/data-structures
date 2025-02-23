@@ -3,13 +3,13 @@ package br.datastructures.queue;
 import br.datastructures.exceptions.NoItemException;
 
 public class ArrayQueue<I> extends AbstractQueue<I> {
-    private int inicio, ultimo;
+    private int first, last;
     private I items[];
     private int capacity;
     
     public ArrayQueue(int initialSize) {
-        inicio = -1;
-        ultimo = -1;
+        first = -1;
+        last = -1;
         capacity = initialSize;
         items = (I[]) new Object[capacity];
     }
@@ -23,37 +23,37 @@ public class ArrayQueue<I> extends AbstractQueue<I> {
         if(empty()) 
             throw new NoItemException();
         
-        return items[inicio];
+        return items[first];
     }
     
-    private void resize() {
+    private I[] resize() {
         capacity *= 2;
         I newItems[] = (I[]) new Object[capacity];
-        System.arraycopy(items, inicio, newItems, 0, size());
+        System.arraycopy(items, first, newItems, 0, size());
         
-        items = newItems;
+        return newItems;
     }
     
     @Override
     public void enqueue(I item) {
         if(full()) 
-            resize();
+            items = resize();
         
         if (empty()) 
-            inicio = 0;
+            first = 0;
         
-        ultimo++;
-        items[ultimo] = item;
+        last++;
+        items[last] = item;
         quantity++;
     }
     
     @Override
     public I dequeue() throws NoItemException {
         I item = getFirst();
-        inicio++;
+        first++;
         
-        if(inicio > ultimo)
-            inicio = ultimo = -1;
+        if(first > last)
+            first = last = -1;
         
         quantity--;
 

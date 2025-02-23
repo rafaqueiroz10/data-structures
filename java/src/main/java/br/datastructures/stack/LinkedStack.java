@@ -29,10 +29,9 @@ public class LinkedStack<I> extends AbstractStack<I> {
     
     @Override
     public void push(I item){
-        Node newNode = new Node();
-        newNode.item = item;
-        newNode.next = top;
+        Node newNode = new Node(item, top);
         top = newNode;
+        
         quantity++;
     }
     

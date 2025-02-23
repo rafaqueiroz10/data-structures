@@ -7,49 +7,43 @@ public class ArrayList<I> extends AbstractList<I> {
     private I items[];
     private int capacity;
     
-    private ArrayList(I[] items, int capacity) {
-        this.items = items;
+    public ArrayList(int capacity) {
+        this.items = (I[]) new Object[capacity];
         this.capacity = capacity;
     }
     
     public ArrayList() {
-        this((I[]) new Object[1], 1);
-    }
-
-    public ArrayList(int initialSize) {
-        this((I[]) new Object[initialSize], initialSize);
+        this(5);
     }
     
-    public boolean full() {
+    private boolean full() {
         return quantity == capacity;
     }
     
-    private void resize() {
+    private I[] resize() {
         capacity *= 2;
-        
         I aux[] = (I[]) new Object[capacity];
         
         System.arraycopy(items, 0, aux, 0, quantity);
         
-        items = aux;
+        return aux;
     }
     
     @Override
-    public void insertTop(I item) { 
+    public void insertFirst(I item) { 
         quantity++;
         
         if(full())
-            resize();
+            items = resize();
         
         System.arraycopy(items, 0, items, 1, size()-1);
-        
         items[0] = item;
     }
     
     @Override
-    public void insertEnd(I item) { 
+    public void insertLast(I item) { 
         if(full())
-            resize();
+            items = resize();
 
         items[size()] = item;
         quantity++;
@@ -58,12 +52,12 @@ public class ArrayList<I> extends AbstractList<I> {
     @Override
     public void insert(I item, int position) throws PositionInvalidException { 
         if(position == 0) {
-            insertTop(item);
+            insertFirst(item);
             return;
         }
         
         if(position == size()) {
-            insertEnd(item);
+            insertLast(item);
             return;
         }
         
@@ -71,18 +65,17 @@ public class ArrayList<I> extends AbstractList<I> {
             throw new PositionInvalidException();
           
         if(full())
-            resize();
+            items = resize();
 
         System.arraycopy(items, position, items, position+1, size() - position);
-        
         items[position] = item;
         
         quantity++;
     }
     
     @Override
-    public I removeTop() throws NoItemException {
-        I item = getTop();
+    public I removeFirst() throws NoItemException {
+        I item = getFirst();
         System.arraycopy(items, 1, items, 0, quantity-1);
         
         quantity--; 
@@ -91,8 +84,8 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I removeEnd() throws NoItemException {
-        I item = getEnd();
+    public I removeLast() throws NoItemException {
+        I item = getLast();
         quantity--;
         
         return item; 
@@ -107,13 +100,12 @@ public class ArrayList<I> extends AbstractList<I> {
             throw new NoItemException();
         
         if(position == 0) 
-            return removeTop();
+            return removeFirst();
        
         if(position == size()-1)
-            return removeEnd();
+            return removeLast();
         
         I item = get(position);
-        
         System.arraycopy(items, position + 1, items, position, quantity - position - 1);
         
         quantity--;
@@ -122,7 +114,7 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I getTop() throws NoItemException {
+    public I getFirst() throws NoItemException {
         if(empty())
             throw new NoItemException();
         
@@ -130,7 +122,7 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I getEnd() throws NoItemException {
+    public I getLast() throws NoItemException {
         if(empty())
             throw new NoItemException();
         
@@ -149,7 +141,10 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public int search(I item) {
+    public int search(I item) throws NoItemException {
+        if(empty())
+            throw new NoItemException();
+        
         for(int i = 0; i < size(); i++)
             if(items[i].equals(item))
                 return i;

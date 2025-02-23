@@ -8,35 +8,35 @@ public class MainList {
             ViewList.view(list);
             
             System.out.println("Insert top: quantos = " + list.size());
-            System.out.println("Top: " + list.getTop() + ", End: " + list.getEnd());
+            System.out.println("Top: " + list.getFirst() + ", End: " + list.getLast());
             
-            System.out.println(list.getTop());
+            System.out.println(list.getFirst());
             
             list.insert(20, 1);
             
             System.out.println("Insert top: quantos = " + list.size());
-            System.out.println("Top: " + list.getTop() + ", End: " + list.getEnd());
+            System.out.println("Top: " + list.getFirst() + ", End: " + list.getLast());
             
             System.out.println(list.get(1));
-            System.out.println(list.getTop());
+            System.out.println(list.getFirst());
             
             
             list.insert(30, 2);
             
             System.out.println("Insert top: quantos = " + list.size());
-            System.out.println("Top: " + list.getTop() + ", End: " + list.getEnd());
+            System.out.println("Top: " + list.getFirst() + ", End: " + list.getLast());
             
             System.out.println(list.get(2));
-            System.out.println(list.getTop());
-            System.out.println(list.getEnd());
+            System.out.println(list.getFirst());
+            System.out.println(list.getLast());
            
             ViewList.view(list);
             
             System.out.println(list.empty());
             System.out.println(list.size());
             
-            System.out.println(list.getEnd());
-            System.out.println(list.getTop());
+            System.out.println(list.getFirst());
+            System.out.println(list.getLast());
             
             System.out.println(list.remove(1));
             
@@ -45,9 +45,9 @@ public class MainList {
             
             System.out.println(list.empty());
             
-            System.out.println(list.removeTop());
+            System.out.println(list.removeFirst());
             
-            System.out.println(list.removeEnd());
+            System.out.println(list.removeLast());
             
             System.out.println(list.empty());
         }

@@ -23,49 +23,52 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
         }
     }
     
-    private Node top, end;
+    private Node first, last;
     
     public DoubleLinkedList() {
         this(null, null);
     }
     
-    private DoubleLinkedList(Node top, Node end) {
-        this.top = top;
-        this.end = end;
+    private DoubleLinkedList(Node first, Node last) {
+        this.first = first;
+        this.last = last;
     }
     
     // insere item no início da lista
-    public void insertTop(I item) { 
+    public void insertFirst(I item) { 
         Node newNode = new Node(item);
+        
         if(empty()) {
-            top = newNode;
-            end = newNode;
+            first = newNode;
+            last = newNode;
             newNode.back = null;
             newNode.next = null;
         }
         else {
-            newNode.next = top;
-            top.back = newNode;
+            newNode.next = first;
+            first.back = newNode;
             newNode.back = null;
-            top = newNode;
+            first = newNode;
         }
+        
         quantity++;
     }
     
     // insere item no final da lista
-    public void insertEnd(I item) { 
+    public void insertLast(I item) { 
         Node newNode = new Node(item);
+        
         if(empty()) {
-            top = newNode;
-            end = newNode;
+            first = newNode;
+            last = newNode;
             newNode.back = null;
             newNode.next = null;
         }
         else {
-            end.next = newNode;
-            newNode.back = end;
-            end = newNode;
-            end.next = null;
+            last.next = newNode;
+            newNode.back = last;
+            last = newNode;
+            last.next = null;
         }
         
         quantity++;
@@ -76,12 +79,12 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     // posição válida: posicao >= 0 && <= tamanho
     public void insert(I item, int position) throws PositionInvalidException { 
         if(position == 0) {
-            insertTop(item);
+            insertFirst(item);
             return;
         }
         
         if(position == size()) {
-            insertEnd(item);
+            insertLast(item);
             return;
         }
         
@@ -90,7 +93,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
         
         int p = 1;
         Node newNode = new Node(item);
-        Node aux = top;
+        Node aux = first;
         
         while(p < position) {
             aux = aux.next;
@@ -107,9 +110,9 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // remove item no início da lista
     // retorna null se lista vazia
-    public I removeTop() throws NoItemException {
-        I item = getTop();
-        top = top.next;
+    public I removeFirst() throws NoItemException {
+        I item = getFirst();
+        first = first.next;
         quantity--;
 
         return item;   
@@ -117,15 +120,15 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // remove item no final da lista
     // retorna null se lista vazia
-    public I removeEnd() throws NoItemException {
-        I item = getEnd();
-        end = end.back;
+    public I removeLast() throws NoItemException {
+        I item = getLast();
+        last = last.back;
         quantity--;
         
         if(empty())
-            top = null;
+            first = null;
         else 
-            end.next = null;
+            last.next = null;
 
         return item;
     }
@@ -137,12 +140,12 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
             throw new PositionInvalidException();
         
         if(position == 0)
-            return removeTop();
+            return removeFirst();
         
         if(position == size()-1)
-            return removeEnd();
+            return removeLast();
 
-        Node aux = top.next;
+        Node aux = first.next;
         int p = 1;
         
         while(aux != null && p != position) {
@@ -160,20 +163,20 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // retorna, sem remover, o item no início da lista
     // null se lista vazia
-    public I getEnd() throws NoItemException {
+    public I getLast() throws NoItemException {
         if(empty())
             throw new NoItemException();
         
-        return end.item;
+        return last.item;
     }
     
     // retorna, sem remover, o item no fim da lista
     // null se lista vazia
-    public I getTop() throws NoItemException { 
+    public I getFirst() throws NoItemException { 
         if(empty())
             throw new NoItemException();
         
-        return top.item;
+        return first.item;
     }
     
     // retorna, sem remover, o item na posição indicada 
@@ -183,7 +186,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
             throw new PositionInvalidException();
         
         int i = 0;
-        for(Node aux = top; aux != null; aux = aux.next, i++)
+        for(Node aux = first; aux != null; aux = aux.next, i++)
             if(i == position)
                 return aux.item;
         
@@ -197,7 +200,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
             throw new NoItemException();
         
         int i = 0;
-        for(Node aux = top; aux != null; aux = aux.next, i++) 
+        for(Node aux = first; aux != null; aux = aux.next, i++) 
             if(aux.item == item)
                 return i;
             
