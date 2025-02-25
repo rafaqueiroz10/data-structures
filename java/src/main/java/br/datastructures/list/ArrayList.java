@@ -1,6 +1,6 @@
 package br.datastructures.list;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 import br.datastructures.exceptions.PositionInvalidException;
 
 public class ArrayList<I> extends AbstractList<I> {
@@ -74,7 +74,7 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I removeFirst() throws NoItemException {
+    public I removeFirst() throws NoSuchItemException {
         I item = getFirst();
         System.arraycopy(items, 1, items, 0, quantity-1);
         
@@ -84,7 +84,7 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I removeLast() throws NoItemException {
+    public I removeLast() throws NoSuchItemException {
         I item = getLast();
         quantity--;
         
@@ -92,12 +92,12 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I remove(int position) throws PositionInvalidException, NoItemException {
+    public I remove(int position) throws PositionInvalidException, NoSuchItemException {
         if(!isValid(position))
             throw new PositionInvalidException();
         
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         if(position == 0) 
             return removeFirst();
@@ -114,36 +114,36 @@ public class ArrayList<I> extends AbstractList<I> {
     }
     
     @Override
-    public I getFirst() throws NoItemException {
+    public I getFirst() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return items[0]; 
     }
     
     @Override
-    public I getLast() throws NoItemException {
+    public I getLast() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return items[size()-1]; 
     }
     
     @Override
-    public I get(int position) throws NoItemException, PositionInvalidException {
+    public I get(int position) throws NoSuchItemException, PositionInvalidException {
         if(!isValid(position))
             throw new PositionInvalidException();
         
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return items[position];
     }
     
     @Override
-    public int search(I item) throws NoItemException {
+    public int search(I item) throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         for(int i = 0; i < size(); i++)
             if(items[i].equals(item))

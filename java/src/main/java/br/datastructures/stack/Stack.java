@@ -1,6 +1,6 @@
 package br.datastructures.stack;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
 public interface Stack<I> {
     public int size();
@@ -9,7 +9,7 @@ public interface Stack<I> {
     
     public void push(I item);
     
-    public I pop() throws NoItemException;
+    public I pop() throws NoSuchItemException;
     
-    public I getTop() throws NoItemException;
+    public I getTop() throws NoSuchItemException;
 }

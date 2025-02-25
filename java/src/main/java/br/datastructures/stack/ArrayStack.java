@@ -1,6 +1,6 @@
 package br.datastructures.stack;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
 public class ArrayStack<I> extends AbstractStack<I> {
     private int top, capacity;
@@ -38,9 +38,9 @@ public class ArrayStack<I> extends AbstractStack<I> {
     }
     
     @Override
-    public I pop() throws NoItemException {
+    public I pop() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         I item = items[top--];
         quantity--;
@@ -50,9 +50,9 @@ public class ArrayStack<I> extends AbstractStack<I> {
     
     
     @Override
-    public I getTop() throws NoItemException {
+    public I getTop() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return items[top];
     }

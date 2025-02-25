@@ -1,6 +1,6 @@
 package br.datastructures.queue;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
 public class ArrayQueue<I> extends AbstractQueue<I> {
     private int first, last;
@@ -19,9 +19,9 @@ public class ArrayQueue<I> extends AbstractQueue<I> {
     }
     
     @Override
-    public I getFirst() throws NoItemException {
+    public I getFirst() throws NoSuchItemException {
         if(empty()) 
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return items[first];
     }
@@ -48,7 +48,7 @@ public class ArrayQueue<I> extends AbstractQueue<I> {
     }
     
     @Override
-    public I dequeue() throws NoItemException {
+    public I dequeue() throws NoSuchItemException {
         I item = getFirst();
         first++;
         

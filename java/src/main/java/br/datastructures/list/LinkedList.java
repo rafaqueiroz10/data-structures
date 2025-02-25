@@ -1,6 +1,6 @@
 package br.datastructures.list;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 import br.datastructures.exceptions.PositionInvalidException;
 
 public class LinkedList<I> extends AbstractList<I> {
@@ -87,7 +87,7 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I removeFirst() throws NoItemException {
+    public I removeFirst() throws NoSuchItemException {
         I item = getFirst();
         first = first.next;
         quantity--;
@@ -96,7 +96,7 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I removeLast() throws NoItemException {
+    public I removeLast() throws NoSuchItemException {
         I item = getLast();
 
         if(first.equals(last)) {
@@ -118,7 +118,7 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I remove(int position) throws PositionInvalidException, NoItemException {
+    public I remove(int position) throws PositionInvalidException, NoSuchItemException {
         if(position == 0)
             return removeFirst();
         
@@ -138,23 +138,23 @@ public class LinkedList<I> extends AbstractList<I> {
     }
 
     @Override
-    public I getFirst() throws NoItemException {
+    public I getFirst() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
 
         return first.item;
     }
 
 
-    public I getLast() throws NoItemException {
+    public I getLast() throws NoSuchItemException {
         if (empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
 
         return last.item;
     }
 
     @Override
-    public I get(int position) throws NoItemException, PositionInvalidException {
+    public I get(int position) throws NoSuchItemException, PositionInvalidException {
         if(!isValid(position))
             throw new PositionInvalidException();
 
@@ -166,13 +166,13 @@ public class LinkedList<I> extends AbstractList<I> {
             p++;
         }
 
-        throw new NoItemException();
+        throw new NoSuchItemException();
     }
 
     @Override
-    public int search(I item) throws NoItemException  {
+    public int search(I item) throws NoSuchItemException  {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         int position = 0;
         for(Node aux = first; aux != null; aux = aux.next) {

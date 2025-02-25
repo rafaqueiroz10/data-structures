@@ -67,7 +67,7 @@ public class MainList {
         
         System.out.println();
         
-        List<Integer> doubleLinkedList = new DoubleLinkedList<>(); 
+        List<Integer> doubleLinkedList = new DoublyLinkedList<>(); 
         testList(doubleLinkedList);
     }
 }

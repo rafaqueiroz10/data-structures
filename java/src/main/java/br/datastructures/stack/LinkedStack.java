@@ -1,6 +1,6 @@
 package br.datastructures.stack;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
 public class LinkedStack<I> extends AbstractStack<I> {
     class Node {
@@ -36,7 +36,7 @@ public class LinkedStack<I> extends AbstractStack<I> {
     }
     
     @Override
-    public I pop() throws NoItemException {
+    public I pop() throws NoSuchItemException {
         I item = getTop();
         top = top.next;
         quantity--;
@@ -45,9 +45,9 @@ public class LinkedStack<I> extends AbstractStack<I> {
     }
     
     @Override
-    public I getTop() throws NoItemException {
+    public I getTop() throws NoSuchItemException {
         if(empty()) 
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return top.item;
     }

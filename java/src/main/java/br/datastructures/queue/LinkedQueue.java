@@ -4,7 +4,7 @@
  */
 package br.datastructures.queue;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
 public class LinkedQueue<I> extends AbstractQueue<I> {
     class Node {
@@ -45,15 +45,15 @@ public class LinkedQueue<I> extends AbstractQueue<I> {
     }
     
     @Override
-    public I getFirst() throws NoItemException {
+    public I getFirst() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return first.item;
     }
     
     @Override
-    public I dequeue() throws NoItemException {
+    public I dequeue() throws NoSuchItemException {
         I item = getFirst();
         first = first.next;
         

@@ -1,9 +1,9 @@
 package br.datastructures.list;
 
 import br.datastructures.exceptions.PositionInvalidException;
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 
-public class DoubleLinkedList<I> extends AbstractList<I> {
+public class DoublyLinkedList<I> extends AbstractList<I> {
     class Node {
         I item;
         Node next, back;
@@ -25,11 +25,11 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     private Node first, last;
     
-    public DoubleLinkedList() {
+    public DoublyLinkedList() {
         this(null, null);
     }
     
-    private DoubleLinkedList(Node first, Node last) {
+    private DoublyLinkedList(Node first, Node last) {
         this.first = first;
         this.last = last;
     }
@@ -110,7 +110,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // remove item no início da lista
     // retorna null se lista vazia
-    public I removeFirst() throws NoItemException {
+    public I removeFirst() throws NoSuchItemException {
         I item = getFirst();
         first = first.next;
         quantity--;
@@ -120,7 +120,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // remove item no final da lista
     // retorna null se lista vazia
-    public I removeLast() throws NoItemException {
+    public I removeLast() throws NoSuchItemException {
         I item = getLast();
         last = last.back;
         quantity--;
@@ -135,7 +135,7 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // remove item na 'posicao' da lista
     // retorna null se posicao inválida
-    public I remove(int position) throws NoItemException, PositionInvalidException {
+    public I remove(int position) throws NoSuchItemException, PositionInvalidException {
         if(!isValid(position))
             throw new PositionInvalidException();
         
@@ -163,25 +163,25 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
     
     // retorna, sem remover, o item no início da lista
     // null se lista vazia
-    public I getLast() throws NoItemException {
+    public I getLast() throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return last.item;
     }
     
     // retorna, sem remover, o item no fim da lista
     // null se lista vazia
-    public I getFirst() throws NoItemException { 
+    public I getFirst() throws NoSuchItemException { 
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         return first.item;
     }
     
     // retorna, sem remover, o item na posição indicada 
     // null se for posição inválida
-    public I get(int position) throws NoItemException, PositionInvalidException { 
+    public I get(int position) throws NoSuchItemException, PositionInvalidException { 
         if(position < 0 || position > size())
             throw new PositionInvalidException();
         
@@ -190,14 +190,14 @@ public class DoubleLinkedList<I> extends AbstractList<I> {
             if(i == position)
                 return aux.item;
         
-        throw new NoItemException();
+        throw new NoSuchItemException();
     }
     
     // retorna posição do item; 
     // -1 em caso contrário
-    public int search(I item) throws NoItemException {
+    public int search(I item) throws NoSuchItemException {
         if(empty())
-            throw new NoItemException();
+            throw new NoSuchItemException();
         
         int i = 0;
         for(Node aux = first; aux != null; aux = aux.next, i++) 

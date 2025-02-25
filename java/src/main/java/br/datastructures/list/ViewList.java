@@ -4,7 +4,7 @@ import br.datastructures.exceptions.*;
 
 public class ViewList {
     public static <I> void view(List<I> list)
-            throws NoItemException {
+            throws NoSuchItemException {
 
         int position = 0;
         

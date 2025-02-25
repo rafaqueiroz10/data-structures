@@ -1,6 +1,6 @@
 package br.datastructures.list;
 
-import br.datastructures.exceptions.NoItemException;
+import br.datastructures.exceptions.NoSuchItemException;
 import br.datastructures.exceptions.PositionInvalidException;
 
 public interface List<I> {
@@ -24,33 +24,33 @@ public interface List<I> {
 
     // remove um item no inicio da lista;
     // retorna o item removido
-    public I removeFirst() throws NoItemException;
+    public I removeFirst() throws NoSuchItemException;
 
     // remove um item no fim da lista;
     // retorna o item removido
-    public I removeLast() throws NoItemException;
+    public I removeLast() throws NoSuchItemException;
 
     // remove um item no meio da lista,
     // de acordo com uma determinada posiÃ§Ã£o;
     // retorna o item removido
     public I remove(int position)
-            throws PositionInvalidException, NoItemException;
+            throws PositionInvalidException, NoSuchItemException;
 
     // obtem um item no inÃ­cio da lista;
     // retorna o item obtido
-    public I getFirst() throws NoItemException;
+    public I getFirst() throws NoSuchItemException;
 
     //  obtem um item no fim da lista;
     // retorna o item obtido
-    public I getLast() throws NoItemException;
+    public I getLast() throws NoSuchItemException;
 
     // obtem um item da lista,
     // dada uma posição;
     // retorna o item obtido
     public I get(int position)
-            throws NoItemException, PositionInvalidException;
+            throws NoSuchItemException, PositionInvalidException;
 
     //  obtem a posiÃ§Ã£o de um item da lista
     // retorna a posiÃ§Ã£o do item
-    public int search(I item) throws NoItemException;
+    public int search(I item) throws NoSuchItemException;
 }
