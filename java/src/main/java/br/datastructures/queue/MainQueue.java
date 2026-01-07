@@ -23,9 +23,12 @@ public class MainQueue {
     }
     public static void main(String[] args) {
         Queue<Integer> linkedQueue = new LinkedQueue<>();
-        test(linkedQueue);
+        //test(linkedQueue);
         
         Queue<Integer> arrayQueue = new ArrayQueue<>(1);
-        test(arrayQueue);
+        //test(arrayQueue);
+        
+        Queue<Integer> arrayCircularQueue = new ArrayCircularQueue<>(2);
+        test(arrayCircularQueue);
     }
 }
