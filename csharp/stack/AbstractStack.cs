@@ -1,6 +1,6 @@
-namespace CSharp.List;
+namespace CSharp.Stack;
 
-using CSharp.List;
+using CSharp.Stack;
 
 public abstract class AbstractStack<T> : IMyStack<T>
 {

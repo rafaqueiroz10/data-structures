@@ -1,6 +1,6 @@
-namespace CSharp.List;
+namespace CSharp.Queue;
 
-using CSharp.List;
+using CSharp.Queue;
 
 public abstract class AbstractQueue<T> : IMyQueue<T>
 {

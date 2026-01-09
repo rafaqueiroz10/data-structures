@@ -8,7 +8,7 @@ public interface IMyStack<T>
 
     public int Size();
 
-    public boolean IsEmpty();
+    public bool IsEmpty();
 
     public T GetTop();
 }

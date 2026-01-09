@@ -1,6 +1,6 @@
-namespace CSharp.List;
+namespace CSharp.Stack;
 
-using CSharp.List;
+using CSharp.Stack;
 using CSharp.Exceptions;
 
 public class MyLinkedStack<T> : AbstractStack<T>
@@ -9,14 +9,16 @@ public class MyLinkedStack<T> : AbstractStack<T>
 
     public override void Push(T item)
     {
-        
+        return;
     }
     public override T Pop()
     {
-        
+        T item = GetTop();
+        return item;
     }
     public override T GetTop()
     {
-        
+        T item = GetTop();
+        return item;
     }
 }

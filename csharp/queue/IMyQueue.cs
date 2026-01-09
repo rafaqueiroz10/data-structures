@@ -10,5 +10,5 @@ public interface IMyQueue<T>
 
     public int Size();
 
-    public int IsEmpty();
+    public bool IsEmpty();
 }

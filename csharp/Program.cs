@@ -5,10 +5,8 @@ using CSharp.Exceptions;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void TestList(IMyList<int> li)
     {
-        IMyList<int> li = new MyArrayList<int>();
-        
         try
         {
             li.Insert(10, 0);
@@ -55,5 +53,16 @@ public class Program
         {
             Console.WriteLine("Fim da lista");
         }
+    }
+    public static void Main(string[] args)
+    {
+        IMyList<int> arrayList = new MyArrayList<int>();
+        TestList(arrayList); 
+
+        IMyList<int> linkedList = new MyLinkedList<int>();
+        TestList(linkedList);
+
+        IMyList<int> doublyLinkedList = new MyDoublyLinkedList<int>();
+        TestList(doublyLinkedList);        
     }
 }
