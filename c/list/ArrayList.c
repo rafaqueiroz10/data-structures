@@ -165,12 +165,6 @@ Item remover(ArrayList* lista, int posicao) {
 
     if(vazia(lista))
         return LISTA_VAZIA;
-    
-    if(posicao == tamanho(lista)-1) 
-        return removerFim(lista);
-
-    if(posicao == 0)
-        return removerInicio(lista);
 
     Item item = obter(lista, posicao);
 
@@ -224,20 +218,20 @@ int main() {
     exibirLista(lista);
 
     Item item = remover(lista, 0);
-    printf("%d removido", item);
+    printf("%d removido\n", item);
 
     exibirLista(lista);
     
-    inserir(lista, 3, 2);
+    inserir(lista, 3, 1);
     exibirLista(lista);
 
-    inserir(lista, 4, 3);
+    inserir(lista, 4, 2);
     exibirLista(lista);
 
     item = remover(lista, 1);
-    printf("%d removido", item);
+    printf("%d removido\n", item);
 
-    inserir(lista, 5, 4);
+    inserir(lista, 5, 1);
     exibirLista(lista);
 
     desalocarArrayList(lista);
