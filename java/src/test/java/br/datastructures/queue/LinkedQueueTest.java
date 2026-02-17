@@ -21,9 +21,9 @@ class LinkedQueueTest {
         assertTrue(queue.empty());
 
         queue.enqueue(10);
-
         assertEquals(10, queue.getFirst());
         assertEquals(1, queue.size());
+
         assertFalse(queue.empty());
     }
 
@@ -33,7 +33,6 @@ class LinkedQueueTest {
 
         queue.enqueue(10);
         queue.enqueue(20);
-
         assertEquals(10, queue.getFirst());
     }
 
@@ -83,7 +82,6 @@ class LinkedQueueTest {
         queue.dequeue();
 
         assertTrue(queue.empty());
-
         queue.enqueue(2);
         assertEquals(2, queue.getFirst());
     }
@@ -91,19 +89,16 @@ class LinkedQueueTest {
     @Test
     void testGetFirstNotRemove() throws NoSuchItemException {
         queue.enqueue(1);
-
         queue.enqueue(2);
 
         assertEquals(1, queue.getFirst());
         assertEquals(1, queue.getFirst());
-
         assertEquals(2, queue.size());
     }
 
     @Test
     void testQueueWithString() throws NoSuchItemException {
         Queue<String> queue1 = new LinkedQueue<>();
-        
         assertTrue(queue1.empty());
 
         queue1.enqueue("A");
@@ -113,11 +108,10 @@ class LinkedQueueTest {
         queue1.enqueue("B");
         assertTrue(queue1.size() == 2);
         assertEquals("A", queue1.getFirst());
-
         assertEquals("A", queue1.dequeue());
+
         assertTrue(queue1.size() == 1);
         assertEquals("B", queue1.getFirst());
-
         assertEquals("B", queue1.dequeue());
         assertTrue(queue1.empty());
 
