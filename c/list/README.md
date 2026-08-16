@@ -10,7 +10,7 @@
 - **Item obterInicio(ArrayList* lista)**: se a lista estiver vazia, retorna `-1`. Senão, retorna o item na posição 0 do vetor.
 - **Item obterFim(ArrayList* lista)**: se a lista estiver vazia, retorna `-1`. Senão, retorna o item na última posição do vetor.
 - **Item obter(ArrayList* lista, int posicao)**: recebe como parâmetro a posição desejada. Se a lista estiver vazia, retorna `-1`. se a posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`. Caso contrário, retorna o item na posição especificada.
-- **Item removerInicio(ArrayList* lista)**: se tamanho da lista for igual a `0`, retorna `-1`; caso contrário, remove e retorna o primeiro item da lista.
+ - **Item removerInicio(ArrayList* lista)**: se tamanho da lista for igual a `0`, retorna `-1`; caso contrário, remove e retorna o primeiro item da lista.
 - **Item removerFim(ArrayList* lista)**: se o tamanho da lista for igual a `0`, retorna `-1`; caso contrário, remove e retorna o último item da lista.
 - **Item remover(ArrayList* lista, int posicao)**: recebe como parâmetro a posição desejada. Se tamanho da lista for igual a 0 ou posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`; caso contrário, remove e retorna o item especificado na posição da lista.
 - **int pesquisar(ArrayList* lista, Item item)**: recebe como parâmetro o item. Retorna a posição de um item da lista. Se a lista estiver vazia ou o item não for encontrado, retorna `-1`.
