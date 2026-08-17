@@ -1,9 +1,9 @@
 ## ArrayList.c
-- **ArrayList* criarArrayList(int capacidade)**: 
+- **ArrayList* criarArrayList(int capacidade): 
     - recebe como parâmetro a capacidade do array criado. Retorna `NULL` se a lista tiver nula e o conjunto de itens for nula. Caso contrário, retorna a lista.
-- **int tamanho(ArrayList* lista)**:       
+- **int tamanho(ArrayList* lista):       
     - retorna a quantidade de itens da lista.
-- **int cheia(ArrayList* lista)**:          
+- **int cheia(ArrayList* lista):          
     - retorna `1` se o tamanho da lista estiver igual a capacidade ou, caso contrário, retorna `0`.
 - **Item* redimensionarArrayList(ArrayList* lista)**: 
     - Cria uma nova lista, dobrando a capacidade inicial. 
@@ -11,31 +11,42 @@
     - Senão, retorna a lista de itens com a capacidade dobrada.
 - **int vazia(ArrayList* lista)**:              
     - verifica se a lista esta vazia. 
-    - Se sim, retorna `1`. Senão, retorna `0`.
+    - Se sim, retorna `1`. 
+    - Senão, retorna `0`.
 - **void inserirInicio(ArrayList* lista, Item item)**: 
     - recebe como parâmetro o item a ser inserido. 
-    - Insere um item no início da lista. - Se a lista estiver cheia e a tentativa de redimensionar o array retornar `NULL`, não insere o item. Caso contrário, o insere no início.
+    - Insere um item no início da lista. - Se a lista estiver cheia e a tentativa de redimensionar o array retornar `NULL`, não insere o item. 
+    - Caso contrário, o insere no início.
 - **void inserirFim(ArrayList* lista, Item item)**: 
     - recebe como parâmetro o item a ser inserido. 
     - Insere um item no fim da lista. 
-    - Se a lista estiver cheia e a tentativa de redimensionar o array retornar NULL, não insere o item. Caso contrário, o insere no fim.
+    - Se a lista estiver cheia e a tentativa de redimensionar o array retornar NULL, não insere o item. 
+    - Caso contrário, o insere no fim.
 - **void inserir(ArrayList* lista, Item item, int posicao)**: 
     - recebe como parâmetro o item a ser inserido e a posição. 
-    - Se a lista estiver cheia e a tentativa de redimensionar o array retornar NULL, ou posição for menor que `0` ou maior que o tamanho da lista, não insere o item. Caso contrário, o insere.
+    - Se a lista estiver cheia e a tentativa de redimensionar o array retornar NULL, ou posição for menor que `0` ou maior que o tamanho da lista, não insere o item. 
+    - Caso contrário, o insere.
 - **Item obterInicio(ArrayList* lista)**:   
-    - se a lista estiver vazia, retorna `-1`. Senão, retorna o item na posição 0 do vetor.
+    - se a lista estiver vazia, retorna `-1`. 
+    - Senão, retorna o item na posição 0 do vetor.
 - **Item obterFim(ArrayList* lista)**: 
-    - se a lista estiver vazia, retorna `-1`. Senão, retorna o item na última posição do vetor.
+    - se a lista estiver vazia, retorna `-1`. 
+    - Senão, retorna o item na última posição do vetor.
 - **Item obter(ArrayList* lista, int posicao)**: 
     - recebe como parâmetro a posição desejada. 
-    - Se a lista estiver vazia, retorna `-1`. se a posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`. Caso contrário, retorna o item na posição especificada.
+    - Se a lista estiver vazia, retorna `-1`.
+    - Se a posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`. 
+    - Caso contrário, retorna o item na posição especificada.
  - **Item removerInicio(ArrayList* lista)**: 
-    - se tamanho da lista for igual a `0`, retorna `-1`; caso contrário, remove e retorna o primeiro item da lista.
-- **Item removerFim(ArrayList* lista)**:    
-    - se o tamanho da lista for igual a `0`, retorna `-1`; caso contrário, remove e retorna o último item da lista.
+    - se tamanho da lista for igual a `0`, retorna `-1`. 
+    - caso contrário, remove e retorna o primeiro item da lista.
+- **Item removerFim(ArrayList* lista):    
+    - se o tamanho da lista for igual a `0`, retorna `-1` 
+    - caso contrário, remove e retorna o último item da lista.
 - **Item remover(ArrayList* lista, int posicao)**: 
     - recebe como parâmetro a posição desejada.
-    - Se tamanho da lista for igual a 0 ou posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`; caso contrário, remove e retorna o item especificado na posição da lista.
+    - Se tamanho da lista for igual a 0 ou posição for menor que `0` ou maior que o tamanho da lista, retorna `-1`. - caso contrário, remove e retorna o item especificado na posição da lista.
 - **int pesquisar(ArrayList* lista, Item item)**: 
     - recebe como parâmetro o item. 
-    - Retorna a posição de um item da lista. Se a lista estiver vazia ou o item não for encontrado, retorna `-1`.
+    - Retorna a posição de um item da lista. 
+    - Se a lista estiver vazia ou o item não for encontrado, retorna `-1`.
