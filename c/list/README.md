@@ -1,10 +1,12 @@
 ## ArrayList.c
 - **ArrayList* criarArrayList(int capacidade)**: 
-    - recebe como parâmetro a capacidade do array criado. Retorna `NULL` se a lista tiver nula e o conjunto de itens for nula. Caso contrário, retorna a lista.
+    - recebe como parâmetro a capacidade do array criado. 
+    - Retorna `NULL` se a lista tiver nula e o conjunto de itens for nula. - Caso contrário, retorna a lista.
 - **int tamanho(ArrayList* lista)**:       
     - retorna a quantidade de itens da lista.
 - **int cheia(ArrayList* lista)**:          
-    - retorna `1` se o tamanho da lista estiver igual a capacidade ou, caso contrário, retorna `0`.
+    - retorna `1` se o tamanho da lista estiver igual a capacidade 
+    - caso contrário, retorna `0`.
 - **Item* redimensionarArrayList(ArrayList* lista)**: 
     - Cria uma nova lista, dobrando a capacidade inicial. 
     - Retorna `NULL` caso não consiga mais memória. 
@@ -15,7 +17,8 @@
     - Senão, retorna `0`.
 - **void inserirInicio(ArrayList* lista, Item item)**: 
     - recebe como parâmetro o item a ser inserido. 
-    - Insere um item no início da lista. - Se a lista estiver cheia e a tentativa de redimensionar o array retornar `NULL`, não insere o item. 
+    - Insere um item no início da lista.
+    - Se a lista estiver cheia e a tentativa de redimensionar o array retornar `NULL`, não insere o item. 
     - Caso contrário, o insere no início.
 - **void inserirFim(ArrayList* lista, Item item)**: 
     - recebe como parâmetro o item a ser inserido. 
@@ -31,7 +34,7 @@
     - Senão, retorna o item na posição 0 do vetor.
 - **Item obterFim(ArrayList* lista)**: 
     - se a lista estiver vazia, retorna `-1`. 
-    - Senão, retorna o item na última posição do vetor.
+    - Senão, retorna o item na última  posição do vetor.
 - **Item obter(ArrayList* lista, int posicao)**: 
     - recebe como parâmetro a posição desejada. 
     - Se a lista estiver vazia, retorna `-1`.
