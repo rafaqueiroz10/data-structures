@@ -1,10 +1,10 @@
 ## ArrayList.c
-- **ArrayList* criarArrayList(int capacidade)**: 
+- **ArrayList\* criarArrayList(int capacidade)**: 
     - recebe como parâmetro a capacidade do array criado. 
     - Retorna `NULL` se a lista tiver nula e o conjunto de itens for nula. - Caso contrário, retorna a lista.
-- **int tamanho(ArrayList* lista)**:       
+- **int tamanho(ArrayList\* lista)**:       
     - retorna a quantidade de itens da lista.
-- **int cheia(ArrayList* lista)**:          
+- **int cheia(ArrayList\* lista)**:          
     - retorna `1` se o tamanho da lista estiver igual a capacidade 
     - caso contrário, retorna `0`.
 - **Item* redimensionarArrayList(ArrayList* lista)**: 
