@@ -43,7 +43,7 @@
  - **Item removerInicio(ArrayList\* lista)**: 
     - se tamanho da lista for igual a `0`, retorna `-1`. 
     - caso contrário, remove e retorna o primeiro item da lista.
-- **Item removerFim(ArrayList\* lista):    
+- **Item removerFim(ArrayList\* lista):**    
     - se o tamanho da lista for igual a `0`, retorna `-1` 
     - caso contrário, remove e retorna o último item da lista.
 - **Item remover(ArrayList\* lista, int posicao)**: 
